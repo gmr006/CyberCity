@@ -33,19 +33,14 @@ cyberCity.state5.prototype = {
         //game.load.image('redArrow', 'assets/Arrow.png', 90, 90);
         // load json file
         game.load.tilemap('tilemap', 'assets/jetLevel.json', null, Phaser.Tilemap.TILED_JSON);
+        game.load.image('Arrow', 'assets/redArrow.png');
 	},
 
 	create: function() {
 		
 		game.physics.startSystem(Phaser.Physics.ARCADE);
         
-        // add in arrow
-        arrow = game.add.sprite(3100, 500, 'Arrow');
-        game.physics.arcade.enable(arrow);  
-        arrow.body.gravity.y = 0;
-        arrow.body.collideWorldBounds = true;
-        arrow.scale.setTo(2, 2);
-        //arrow.exists = false; // set to false so it doesn't appear at start
+        
         
         levelTwo = game.add.sprite(0,0,'level2');
         levelTwo.height = game.height;
@@ -329,7 +324,7 @@ cyberCity.state5.prototype = {
 		tankEnemy1.frame = 1;
         tankText1 = game.add.text(tankEnemy1.body.x, tankEnemy1.body.y, tankEnemy1_hp, {font: "25px Courier", fill: "#ff3300", align: "center"});
         
-        tankEnemy2 = game.add.sprite(1200, game.world.height-125, 'enemySmall');
+        tankEnemy2 = game.add.sprite(1500, game.world.height-125, 'enemySmall');
         game.physics.arcade.enable(tankEnemy2);  
 		tankEnemy2.body.collideWorldBounds = true;
         tankEnemy2.body.immovable = true;
@@ -343,7 +338,7 @@ cyberCity.state5.prototype = {
 		tankEnemy2.frame = 1;
         tankText2 = game.add.text(tankEnemy2.body.x, tankEnemy2.body.y, tankEnemy2_hp, {font: "25px Courier", fill: "#ff3300", align: "center"});
         
-        tankEnemy3 = game.add.sprite(1200, game.world.height-125, 'enemySmall');
+        tankEnemy3 = game.add.sprite(2000, game.world.height-125, 'enemySmall');
         game.physics.arcade.enable(tankEnemy3);  
 		tankEnemy3.body.collideWorldBounds = true;
         tankEnemy3.body.immovable = true;
@@ -357,7 +352,7 @@ cyberCity.state5.prototype = {
 		tankEnemy3.frame = 1;
         tankText3 = game.add.text(tankEnemy3.body.x, tankEnemy3.body.y, tankEnemy3_hp, {font: "25px Courier", fill: "#ff3300", align: "center"});
         
-        tankEnemy4 = game.add.sprite(1200, game.world.height-125, 'enemySmall');
+        tankEnemy4 = game.add.sprite(2700, game.world.height-125, 'enemySmall');
         game.physics.arcade.enable(tankEnemy4);  
 		tankEnemy4.body.collideWorldBounds = true;
         tankEnemy4.body.immovable = true;
@@ -398,6 +393,14 @@ cyberCity.state5.prototype = {
         potion4.body.collideWorldBounds = true;
         potion4.body.gravity.y = 900;
         potion4.exists = false; // set to false so it doesn't appear at start
+        
+        // add in arrow
+        arrow = game.add.sprite(3100, 500, 'Arrow');
+        game.physics.arcade.enable(arrow);  
+        arrow.body.gravity.y = 0;
+        arrow.body.collideWorldBounds = true;
+        arrow.scale.setTo(2, 2);
+        //arrow.exists = false; // set to false so it doesn't appear at start
         
 	},
 
@@ -779,7 +782,7 @@ cyberCity.state5.prototype = {
                 player.frame = 3;
             }
         }                                   // Jump 
-        if ((up.isDown || cursors.up.isDown) && (player.body.touching.down||player.body.blocked.down||player.body.blocked.left||player.body.blocked.right)){
+        if ((up.isDown || cursors.up.isDown) && (player.body.touching.down||player.body.blocked.down||player.body.blocked.left||player.body.blocked.right||player.body.touching.right||player.body.touching.left)){
             player.body.velocity.y = -500;
         }
         if (cursors.down.isDown || down.isDown){

@@ -138,7 +138,8 @@ cyberCity.state4.prototype = {
 
 		// Add the jet enemy -- lowest level
 		enemyMedium = game.add.sprite(600, game.world.height - 150, 'enemyMedium');
-		game.physics.arcade.enable(enemyMedium);    
+		game.physics.arcade.enable(enemyMedium);  
+        enemyMedium.body.immovable = true;
 		enemyMedium.body.gravity.y = 0;
 		enemyMedium.body.collideWorldBounds = true;
 		enemyMedium.width = 100;
@@ -153,7 +154,8 @@ cyberCity.state4.prototype = {
         
         // middle right ledge
         enemyMedium1 = game.add.sprite(775, game.world.height - 300, 'enemyMedium');
-        game.physics.arcade.enable(enemyMedium1);    
+        game.physics.arcade.enable(enemyMedium1);
+        enemyMedium1.body.immovable = true;
 		enemyMedium1.body.gravity.y = 0;
 		enemyMedium1.body.collideWorldBounds = true;
 		enemyMedium1.width = 100;
@@ -168,7 +170,8 @@ cyberCity.state4.prototype = {
         
         // middle left ledge
         enemyMedium2 = game.add.sprite(150, game.world.height - 500, 'enemyMedium');
-        game.physics.arcade.enable(enemyMedium2);    
+        game.physics.arcade.enable(enemyMedium2); 
+        enemyMedium2.body.immovable = true;
 		enemyMedium2.body.gravity.y = 0;
 		enemyMedium2.body.collideWorldBounds = true;
 		enemyMedium2.width = 100;
@@ -183,7 +186,8 @@ cyberCity.state4.prototype = {
         
         // upper right ledge
         enemyMedium3 = game.add.sprite(970, game.world.height - 500, 'enemyMedium');
-        game.physics.arcade.enable(enemyMedium3);    
+        game.physics.arcade.enable(enemyMedium3);   
+        enemyMedium3.body.immovable = true;
 		enemyMedium3.body.gravity.y = 0;
 		enemyMedium3.body.collideWorldBounds = true;
 		enemyMedium3.width = 100;
